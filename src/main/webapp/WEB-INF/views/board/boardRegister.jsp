@@ -16,11 +16,11 @@
    <div class="w-75 shadow p-5 rounded border">
       <h3>글쓰기</h3>
       <form method="post" action="<c:url value='register.do'/>">
-         <input type="hidden" name="uid" value="${sessionScope.userId}"/>
+         <input type="hidden" name="uid" value="${sessionScope.userId == 'admin'}"/>
          <div class="form-group">
             <label for="subject">제목</label>
             <input type="text" class="form-control" id="subject" 
-               name="subject" placeholder="글 제목을 입력하세요"/>
+               name="subject" placeholder="제목을 입력하세요"/>
          </div>
          <div class="form-group">
             <label for="contents">내용</label>

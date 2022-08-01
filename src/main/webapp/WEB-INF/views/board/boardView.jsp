@@ -7,7 +7,7 @@
 <div class="container d-flex mt-5 justify-content-center">
    <div class="w-75 shadow p-5 rounded border">
       <h3>${board.subject}</h3>
-      <form action="list.do" method="get" id="moveForm">
+      <form action="boardList.do" method="get" id="moveForm">
          <input type="hidden" name="viewPage" value="${viewPage}"/>
          <input type="hidden" name="searchType" value="${bvo.searchType}"/>
          <input type="hidden" name="keyWord" value="${bvo.keyWord}"/>
@@ -305,7 +305,7 @@
       
       $("#btn-modify").click(() => {
          //location.href="<c:url value='/modify.do?bid=${board.bid}&viewPage=${viewPage}&searchType=${bvo.searchType}&keyWord=${bvo.keyWord}'/>";
-         moveForm.attr("action", "modify.do");
+         moveForm.attr("action", "boardModify.do");
          moveForm.submit();
       })
    });

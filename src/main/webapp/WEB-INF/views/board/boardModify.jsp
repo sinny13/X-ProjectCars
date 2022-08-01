@@ -6,7 +6,7 @@
 
 <div class="container d-flex mt-5 justify-content-center">
 	<div class="w-75 shadow p-5 rounded border">
-		<form id="moveForm" method="post" action="<c:url value='modify.do'/>">
+		<form id="moveForm" method="post" action="<c:url value='boardModify.do'/>">
 			<input type="hidden" name="viewPage" value="${viewPage}"/>
 			<input type="hidden" name="keyWord" value="${bvo.keyWord}"/>
 			<input type="hidden" name="searchType" value="${bvo.searchType}"/>
@@ -68,9 +68,9 @@
 			var linkBtn = $(this).data("link");
 			
 			if(linkBtn === "remove"){
-				moveForm.attr("action", "remove.do");
+				moveForm.attr("action", "boardRemove.do");
 			}else if(linkBtn === "list"){
-				moveForm.attr("action", "list.do").attr("method", "get");
+				moveForm.attr("action", "boardList.do").attr("method", "get");
 				
 				// clone()은 복사해옴.
 				var viewPageObj = $("input[name='viewPage']").clone();
@@ -79,7 +79,7 @@
 				
 				// list로 넘어가는 파라미터는 viewPage, keyWord, searchType만
 				// 필요하다. 나머지는 필요없기 때문에 지워버리고 
-				// 세계의 파라미터만 담아서 보냄
+				// 세 개의 파라미터만 담아서 보냄
 				moveForm.empty();
 				
 				moveForm.append(viewPageObj);

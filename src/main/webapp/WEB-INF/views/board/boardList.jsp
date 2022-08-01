@@ -12,7 +12,7 @@
 		
 	/* 142줄 코드, (글쓰기 버튼)id btn-write를 클릭 했을 때 페이지 이동, location.href = "이동할 페이지 주소"; */
       $("#btn-write").click(() => {
-         location.href="<c:url value='register.do?viewPage=${bp.viewPage}'/>";
+         location.href="<c:url value='boardRegister.do?viewPage=${bp.viewPage}'/>";
       })
       /* 
       jQuery
@@ -53,9 +53,9 @@
          
          moveForm.append("<input type='hidden' name='bid' value='"+
                $(this).attr("href")+"'>");
-         moveForm.attr("action", "view.do"); 
+         moveForm.attr("action", "boardView.do"); 
          /*
-         moveform에 action 속성 추가, 속성값: view.do로 이동
+         moveform에 action 속성 추가, 속성값: boardView.do로 이동
      	 action : 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 url을 입력
        	 */
          moveForm.submit();
@@ -83,13 +83,13 @@
 <div class="container mt-5">
 <h3>스프링 게시판</h3>
 	<div>
-		<form action="list.do" method="get" id="moveForm"><!-- 데이터 객체 -->
+		<form action="boardList.do" method="get" id="moveForm"><!-- 데이터 객체 -->
 		   <input type="hidden" name="viewPage" value="${bp.viewPage}"/>
 		   <input type="hidden" name="searchType" value="${vo.searchType}"/>
 		   <input type="hidden" name="keyWord" value="${vo.keyWord}"/>
 		</form>
 		
- 		<form id="searchForm" method="post" action="list.do">
+ 		<form id="searchForm" method="post" action="boardList.do">
 		   <div class="d-flex justify-content-end">
 		   
 		      <!-- 검색 >> BoardMapper.java -->
@@ -114,7 +114,7 @@
 	</div>
 <!-- BoardController : BoardPaging bp = new BoardPaging(totalCnt, viewPage, cntPerPage); -->
 <div class="m-0 my-1"><b>${bp.viewPage}</b> / ${bp.totalPage} pages</div>
-	<table class="table table-hover table-striped">
+	<table class="table table-hover">
 	   <thead style="background:#8091a3; color:white">
 	      <tr>
 	         <th>번호</th>
@@ -165,12 +165,18 @@
 	  </li>
 	</ul>
 	
-	<div class="text-center">
-	   <button class="btn btn btn-outline-dark" id="btn-dark"
-	      <c:if test="${sessionScope.userId==null || sessionScope.userId==''}">disabled</c:if>>
+<%-- 	<div class="text-center">
+	   <button class="btn btn btn-outline-dark" id="btn-dark">
+	      <c:if test="${sessionScope.userId==null || sessionScope.userId==''}">disabled</c:if>
 	      <!-- id 세션이 없으면 버튼 비활성화 -->
-	      <i class="fa fa-pencil-square-o"></i>글쓰기</button>
-	</div>
+	      <i class="fa fa-pencil-square-o">글쓰기</i>
+	    </button>
+	</div> --%>
+
+    <a class="btn btn-outline-white">^</a><!-- 폰트 -->
+	<c:if test="${sessionScope.userId =='admin'}">
+		<a class="btn btn-outline-white" href="boardView.do" style="float:right">글쓰기</a>
+	</c:if>
 </div>
 
 <%@ include file="../inc/footer.jsp" %>
