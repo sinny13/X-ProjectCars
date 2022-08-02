@@ -1,26 +1,28 @@
 package kr.mr.model;
 
+import java.sql.Date;
+
 public class ReserveDTO {
 
 	private int revNum;
-	private int revNames;
-	private int revJumin1;
-	private int revJumin2;
-	private int revTel;
-	private int revAddr;
+	private String revName;
+	private String revJumin1;
+	private String revJumin2;
+	private String revTel;
+	private String revAddr;
 	private int count;
-	private int revDate1;
-	private int revDate2;
+	private Date revDate1;
+	private Date revDate2;
 	
 	
 	public ReserveDTO() {}
 
 
-	public ReserveDTO(int revNum, int revNames, int revJumin1, int revJumin2, int revTel, int revAddr, int count,
-			int revDate1, int revDate2) {
+	public ReserveDTO(int revNum, String revName, String revJumin1, String revJumin2, String revTel, String revAddr,
+			int count, Date revDate1, Date revDate2) {
 		super();
 		this.revNum = revNum;
-		this.revNames = revNames;
+		this.revName = revName;
 		this.revJumin1 = revJumin1;
 		this.revJumin2 = revJumin2;
 		this.revTel = revTel;
@@ -41,52 +43,52 @@ public class ReserveDTO {
 	}
 
 
-	public int getRevNames() {
-		return revNames;
+	public String getRevName() {
+		return revName;
 	}
 
 
-	public void setRevNames(int revNames) {
-		this.revNames = revNames;
+	public void setRevName(String revName) {
+		this.revName = revName;
 	}
 
 
-	public int getRevJumin1() {
+	public String getRevJumin1() {
 		return revJumin1;
 	}
 
 
-	public void setRevJumin1(int revJumin1) {
+	public void setRevJumin1(String revJumin1) {
 		this.revJumin1 = revJumin1;
 	}
 
 
-	public int getRevJumin2() {
+	public String getRevJumin2() {
 		return revJumin2;
 	}
 
 
-	public void setRevJumin2(int revJumin2) {
+	public void setRevJumin2(String revJumin2) {
 		this.revJumin2 = revJumin2;
 	}
 
 
-	public int getRevTel() {
+	public String getRevTel() {
 		return revTel;
 	}
 
 
-	public void setRevTel(int revTel) {
+	public void setRevTel(String revTel) {
 		this.revTel = revTel;
 	}
 
 
-	public int getRevAddr() {
+	public String getRevAddr() {
 		return revAddr;
 	}
 
 
-	public void setRevAddr(int revAddr) {
+	public void setRevAddr(String revAddr) {
 		this.revAddr = revAddr;
 	}
 
@@ -101,34 +103,34 @@ public class ReserveDTO {
 	}
 
 
-	public int getRevDate1() {
+	public Date getRevDate1() {
 		return revDate1;
 	}
 
 
-	public void setRevDate1(int revDate1) {
+	public void setRevDate1(Date revDate1) {
 		this.revDate1 = revDate1;
 	}
 
 
-	public int getRevDate2() {
+	public Date getRevDate2() {
 		return revDate2;
 	}
 
 
-	public void setRevDate2(int revDate2) {
+	public void setRevDate2(Date revDate2) {
 		this.revDate2 = revDate2;
 	}
 
 
 	@Override
 	public String toString() {
-		return "ReserveDTO [revNum=" + revNum + ", revNames=" + revNames + ", revJumin1=" + revJumin1 + ", revJumin2="
+		return "ReserveDTO [revNum=" + revNum + ", revNames=" + revName + ", revJumin1=" + revJumin1 + ", revJumin2="
 				+ revJumin2 + ", revTel=" + revTel + ", revAddr=" + revAddr + ", count=" + count + ", revDate1="
 				+ revDate1 + ", revDate2=" + revDate2 + "]";
-	};
-	
-	
+	}
+
+
 	
 	
 	

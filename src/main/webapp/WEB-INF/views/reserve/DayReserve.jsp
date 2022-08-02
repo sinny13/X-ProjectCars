@@ -87,7 +87,7 @@
 	
 
 	<body style="background-color:#111; color:#fff">
-	<form action="payment.do">
+	<form action="payment.do" method="post">
     <div class="container p-3 my-5 bg-secondary text-white">
         <h1>렌트 예약</h1>
     </div>
@@ -101,16 +101,16 @@
             <tbody>
                 <tr>
                     <td>이름</td>
-                    <td><input name="name" type="name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name"></td>
+                    <td><input name="revName" type="name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name"></td>
                 </tr>
                 <tr>
                     <td>주민번호</td>
-                    <td><input name="revjumin1" type="rrn_first" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
-                    <td><input name="revjumin2" type="rrn_second" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
+                    <td><input name="revJumin1" type="rrn_first" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
+                    <td><input name="revJumin2" type="rrn_second" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
                 </tr>
                 <tr>
                     <td>연락처</td>
-                    <td><input name="revtel" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="010-xxxx-xxxx"></td>
+                    <td><input name="revTel" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="010-xxxx-xxxx"></td>
                 </tr>
                 <tr>
                     <td>렌트지역</td>
