@@ -77,8 +77,17 @@
 		
 		.inp:focus { outline: none; background-color: #eee; } 
 	</style>
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<body style="background-color:#111; color:#fff">
+	<form action="payment.do">
     <div class="container p-3 my-5 bg-secondary text-white">
         <h1>렌트 예약</h1>
     </div>
@@ -86,28 +95,28 @@
         <table class="table" style="color: #fff;">
             <thead>
                 <tr class="table-dark">
-                    <th>1일렌트</th>
+                    <th>장기렌트</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>이름</td>
-                    <td><input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name"></td>
+                    <td><input name="name" type="name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name"></td>
                 </tr>
                 <tr>
                     <td>주민번호</td>
-                    <td><input type="rrn_first" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
-                    <td><input type="rrn_second" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
+                    <td><input name="revjumin1" type="rrn_first" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
+                    <td><input name="revjumin2" type="rrn_second" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
                 </tr>
                 <tr>
                     <td>연락처</td>
-                    <td><input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="010-xxxx-xxxx"></td>
+                    <td><input name="revtel" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="010-xxxx-xxxx"></td>
                 </tr>
                 <tr>
                     <td>렌트지역</td>
                     <td>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <input name="revAddr" class="form-check-input" type="radio" id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
                               서구지점
                             </label>
@@ -163,5 +172,6 @@
                 $('.datepicker').datepicker();})
             </script>
         </div> 
+        </form>
     </body>
 <%@ include file="../inc/footer.jsp" %>

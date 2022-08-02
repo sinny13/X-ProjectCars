@@ -236,11 +236,11 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 
 <!------- 1일렌트 start ------->  
- <ul class="navbar-nav">
-   	<li class="nav-link">            
-      <a class="nav-link" href="revOneDay.do" role="button" data-bs-toggle="dropdown">1일렌트</a> 
-    </li> 
- </ul>
+    <ul class="navbar-nav">
+   		<li class="nav-link">            
+          <a class="nav-link" href="revOneDay.do">1일렌트</a> 
+        </li> 
+   </ul>
 <!------- 1일렌트 end ------->		
 
    
