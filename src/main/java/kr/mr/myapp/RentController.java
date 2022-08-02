@@ -12,7 +12,7 @@ import kr.mr.model.VehicleDTO;
 
 
 @Controller
-public class rentController {
+public class RentController {
 	
 	@Autowired
 	   private VehicleMapper vehicleMapper;
@@ -21,8 +21,7 @@ public class rentController {
 	   @RequestMapping("/rentPage.do") 
 	      public String rentPage(Model model) {
 	  
-	      List<VehicleDTO> vehicleList = vehicleMapper.vehicleList();
-	  
+	      List<VehicleDTO> vehicleList = vehicleMapper.vehicleList();	  
 	      model.addAttribute("vehicleList", vehicleList);
 	  
 	       return "rental/rentPage"; 
