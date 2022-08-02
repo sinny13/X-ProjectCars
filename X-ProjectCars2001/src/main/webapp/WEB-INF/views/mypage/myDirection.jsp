@@ -3,11 +3,6 @@
 
 <%@ include file="../inc/header.jsp" %>
 
-<!-- Personal CSS -->
-<link rel="stylesheet" href="${ctx}/resources/css/myPageList.css">
-<link rel="stylesheet" href="${ctx}/resources/css/myWishList.css">
-
-<script type="text/javascript" src="${ctx}/resources/js/mdb.min.js"></script>
 
 <style>
     .accordion-item {margin-bottom: 50px;}

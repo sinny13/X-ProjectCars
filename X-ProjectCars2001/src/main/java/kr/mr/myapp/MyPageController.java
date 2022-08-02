@@ -14,44 +14,60 @@ import kr.mr.model.CategoryDTO;
 
 @Controller
 public class MyPageController {
-		
+
 	@Autowired
 	private MyPageMapper mypageMapper;
-	
+
 	// 마이페이지 뷰페이지
 	@RequestMapping("/myPageList.do")
 	public String myPageList() {
-		
+
 		return "mypage/myPageList";
 	}
-	
+
 	// 상세정보 뷰페이지
 	@RequestMapping("/myMemberModify.do")
 	public String myMemberModify() {
-		
+
 		return "mypage/myMemberModify";
 	}
+
 	
-	// 관심목록 상세정보보기 뷰페이지
-	@RequestMapping("/myWishList.do")
-	public String myWishList() {
-		
-		return "mypage/myWishList";
+	 // 위시리스트 뷰페이지
+	  
+	 @RequestMapping("/myWishList.do") 
+	 public String myWishList() {
+	  
+		 return "mypage/myWishList"; 
 	}
-	
-	// 오시는길 뷰페이지
-	@RequestMapping("/myDirection.do")
-	public String myDirection() {
-		
-		return "mypage/myDirection";
+	 
+
+	// 관심목록 상세보기 뷰페이지
+	@RequestMapping("/myWishDetail.do")
+	public String myWishDetail() {
+
+		return "mypage/myWishDetail";
 	}
 
 	// 오시는길 뷰페이지
-	@RequestMapping("/myReservation.do")
-	public String myReservation() {
-		
-		return "mypage/myReservation";
+	@RequestMapping("/myDirection.do")
+	public String myDirection() {
+
+		return "mypage/myDirection";
+	}
+
+	// 1일 렌트예약 뷰페이지
+	@RequestMapping("/myDayReserv.do")
+	public String myDayReserv() {
+
+		return "mypage/myDayReserv";
 	}
 	
+	// 장기 렌트예약 뷰페이지
+	@RequestMapping("/myLongReserv.do")
+	public String myLongReserv() {
+
+		return "mypage/myLongReserv";
+	}
 
 }
