@@ -41,7 +41,7 @@
       
       <div class="column-xs-12 column-md-5">
         <h1>${vDto.company} ${vDto.cName}</h1>
-        <h2>${vDto.price}원</h2>
+        <h2>${vDto.price}만원</h2>
         <div class="description">
         <p>${vDto.contents}</p>
         <br/>
