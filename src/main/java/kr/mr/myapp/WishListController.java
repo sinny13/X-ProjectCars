@@ -45,7 +45,16 @@ public class WishListController {
 		   
 		   request.setAttribute("wishList", wishList);
 		   
+		   wishList.toString();
+		   
+		   
+		   
 		   return "wish/wish_list"; 
+		   
+		   
+		   
+		   
+		   
 		   
 		   
 		   }else {

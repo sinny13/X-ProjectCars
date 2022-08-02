@@ -3,23 +3,21 @@
 
 <%@ include file="../inc/header.jsp" %>
 
+<c:if test="${wishList == null}">    
+	<div>위시리스트가 업습니다.</div>
+</c:if>
 
 
-<%-- link rel="stylesheet" href="${ctx}/resources/css/wish.css">
+<link rel="stylesheet" href="${ctx}/resources/css/wish.css">
   <div class="wish">
     <div class="product">
+      
+      <c:if test="${wishList != null}">
       <c:forEach var="wDtos" items="${wishList}">
-      
-      <c:if test="${wDtos == null}">    
-      	<div>위시리스트가 업습니다.</div>
-      </c:if>
-      
-      <c:if test="${wDtos != null}">
       <div class="product-card">
         <h2 class="name">${wDtos.company} ${wDtos.cName}</h2>
         <span class="price">${wDtos.price}만원</span>
         <a class="popup-btn">예약하기</a>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFTA-GU5hfvjuHibMn5hU5SRgt-NJUBiR5mw&usqp=CAU" class="product-img" alt="">
       </div>
       <div class="popup-view">
         <div class="popup-card">
@@ -36,15 +34,12 @@
           </div>
         </div>
       </div>
-  		</c:if>
      </c:forEach>
+  		</c:if>
       </div>
-  </div> --%>
+  </div>
   
 
-    <c:forEach var="wDtos" items="${wishList}">
-  		<div>${wDtos.company}</div>
-  	</c:forEach>
   
   
   

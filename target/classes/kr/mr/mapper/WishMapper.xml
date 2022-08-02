@@ -7,9 +7,13 @@
 <mapper namespace="kr.mr.mapper.WishMapper">
   
   <select id="wishList" resultType="WishDTO">
-  	SELECT car.*, wishList.wID
-	FROM car INNER JOIN wishList
-	ON car.cNum = wishList.cNum;
+  	<!-- SELECT * from wishList -->
+  	
+  	
+  	SELECT car.cName,car.price,car.company,car.fileName, wishList.wID 
+  	FROM car INNER JOIN wishList 
+  	ON car.cNum = wishList.cNum;
+
   </select>
   
   <insert id="wishInsert" parameterType="WishDTO">
