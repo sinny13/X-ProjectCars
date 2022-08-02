@@ -55,8 +55,8 @@
         <br/>
         <br/>
       </div>
-        <button class="add-to-cart">렌트카 예약하기</button>
-        <button class="add-to-cart">관심상품</button>
+        <button class="add-to-cart"><a href="wishList.do?cNum=${vDto.cNum}&id=${sessionScope.userId}">렌트카 예약하기</a></button>
+        <button class="add-to-cart">관심상품${sessionScope.userId}</button>
       </div>
     </div>
     <%-- </c:forEach> --%>
