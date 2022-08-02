@@ -18,13 +18,27 @@ public class ReserveController {
 	   private VehicleMapper vehicleMapper;
 	   
 	   
-	   @RequestMapping("/reservePage.do") 
-	      public String reservePage(Model model) {
+	   @RequestMapping("/revOneDay.do") 
+	      public String reserveOneDay(Model model) {
 	  
 
-	  
-	       return "reserve/carReserve"; 
+
+		   
+		   
+	       return "reserve/myDayReserv"; 
 	          
+	   }  
+	   
+	   
+	   
+	   
+	   @RequestMapping("/revLongDay.do") 
+	   public String reserveLongDay(Model model) {
+		   
+		   
+		   
+		   return "reserve/myLongReserv"; 
+		   
 	   }  
 
 	}
