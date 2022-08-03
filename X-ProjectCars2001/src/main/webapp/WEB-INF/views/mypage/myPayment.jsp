@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+   
 <%@ include file="../inc/header.jsp" %>
 
 <link rel="stylesheet" href="${ctx}/resources/css/myPayment.css">
 <link rel="stylesheet" href="${ctx}/resources/js/myPayment.js">
 
-
+<div id="myPayment">
 <!-- partial:index.partial.html -->
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -646,7 +646,7 @@
       <table class="pricing">
         <tbody>
           <tr>
-            <img src="images/car.jpg" alt="">
+            <img src="${ctx}/resources/image/cars/람보르기니  가야도르.jpg" alt="">
             <!-- <td class="pricing__label">Custom Throw Pillow (18" x 18")</td> -->
             <td class="pricing__label">람보르기니 우라칸</td>
             <td class="pricing__price">￦300,000,000</td>
@@ -729,6 +729,7 @@
     </div> -->
     
   </div>
+</div>
 </div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>

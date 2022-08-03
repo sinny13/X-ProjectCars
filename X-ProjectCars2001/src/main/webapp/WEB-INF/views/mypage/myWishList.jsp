@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
 <%@ include file="../inc/header.jsp" %>
 
 <link rel="stylesheet" href="${ctx}/resources/css/myWishList.css">
 <link rel="stylesheet" href="${ctx}/resources/js/myWishList.js">
+
+<div id="myWishList">
 
     <div class="container mt-3">
 		<div class="mt-3 mb-3 p-3 bg-secondary text-white rounded">
@@ -114,7 +117,8 @@
 			</article>
 
 		</section>
-
 	</div>
+
+</div>
 
 <%@ include file="../inc/footer.jsp" %>

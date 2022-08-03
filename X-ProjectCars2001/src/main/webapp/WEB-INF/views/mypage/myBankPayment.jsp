@@ -5,6 +5,10 @@
 
 <link rel="stylesheet" href="${ctx}/resources/css/myBankPayment.css">
 
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.js'></script>
+
 <!-- partial:index.partial.html -->
 <!-- <header class="top-bar align-center">
   <div class="top-bar-title">
@@ -13,6 +17,7 @@
     </h3>
   </div>
 </header> -->
+<div id="myBankPayment">
 <div class="row expanded">
   <main class="columns">
     <div class="inner-container">
@@ -103,7 +108,7 @@
         </div>
         <header class="row align-center">
             <!-- <a class="button hollow secondary"><i class="ion ion-chevron-left"></i> Go Back to Purchases</a> -->
-            &nbsp;&nbsp;<a class="btn btn-sm btn-primary" href="home.do">
+            &nbsp;&nbsp;<a class="button" href="home.do">
               <!-- <i class="ion ion-ios-printer-outline"></i>  -->
               홈으로</a>
           </header>
@@ -113,8 +118,7 @@
   </div>
 </main>
 </div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.js'></script>
+</div>
+
 
 <%@ include file="../inc/footer.jsp" %>

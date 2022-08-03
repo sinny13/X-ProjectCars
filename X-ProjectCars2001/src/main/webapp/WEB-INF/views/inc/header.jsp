@@ -42,8 +42,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <!-- CSS -->
 
 <link rel="stylesheet" href="${ctx}/resources/css/mdb.min.css">
+
 <link rel="stylesheet" href="${ctx}/resources/css/car_main.css">
 <link rel="stylesheet" href="${ctx}/resources/css/home.css">
+
 <link rel="stylesheet" href="${ctx}/resources/css/font.css">
 
 
