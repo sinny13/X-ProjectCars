@@ -13,7 +13,7 @@
 
 
   <select id="reserveList" resultType="reserveDTO">
-  	select * from reservation ORDER BY cat_num = #{cat_num} DESC
+  	select * from reservation
   </select>
   
   
