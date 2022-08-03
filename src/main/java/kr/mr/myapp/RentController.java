@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.mr.mapper.ReserveMapper;
 import kr.mr.mapper.VehicleMapper;
 import kr.mr.model.VehicleDTO;
 
@@ -16,16 +17,49 @@ public class RentController {
 	
 	@Autowired
 	   private VehicleMapper vehicleMapper;
+	
+	@Autowired
+	private ReserveMapper reserveMapper;
 	   
 	   
-	   @RequestMapping("/rentPage.do") 
-	      public String rentPage(Model model) {
+	   @RequestMapping("/oneDayCar.do") 
+	      public String DayCar(Model model) {
 	  
 	      List<VehicleDTO> vehicleList = vehicleMapper.vehicleList();	  
 	      model.addAttribute("vehicleList", vehicleList);
 	  
-	       return "rental/rentPage"; 
+	       return "rental/oneDayCar"; 
 	          
 	   }  
+	   
+	   @RequestMapping("/longDayCar.do") 
+	   public String LongDayCar(Model model) {
+		   
+		   List<VehicleDTO> vehicleList = vehicleMapper.vehicleList();	  
+		   model.addAttribute("vehicleList", vehicleList);
+		   
+		   return "rental/longDayCar"; 
+		   
+	   }  
+	   
+	   
+	   
+	   @RequestMapping("/paymentOk.do") 
+	   public String paymentOk(Model model,int cNum) {
+		   
+			VehicleDTO vDto = vehicleMapper.vehicleGetter(cNum);
+			
+			model.addAttribute("vDto", vDto);
+		   
+		   return "rental/paymentOk"; 
+		   
+	   }  
+	   	   
+	   
+	   
+	   
+	   
+	   
+	   
 
 	}

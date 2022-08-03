@@ -225,20 +225,20 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <!------- 즉시출고가능차량 end ------->   
 
 
-<!------- 장기렌트 start ------->  
+<!------- 장기렌트 start ------->  <!-- LongDay.do -->
     <ul class="navbar-nav">
    		<li class="nav-link">            
-          <a class="nav-link" href="LongDay.do">장기렌트</a> 
+          <a class="nav-link" href="longDayCar.do">장기렌트</a> 
         </li> 
    </ul>
 <!------- 장기렌트 start ------->  
 
 
 
-<!------- 1일렌트 start ------->  
+<!------- 1일렌트 start ------->  <!--"OneDay.do"  -->
     <ul class="navbar-nav">
    		<li class="nav-link">            
-          <a class="nav-link" href="OneDay.do">1일렌트</a> 
+          <a class="nav-link" href="oneDayCar.do">1일렌트</a> 
         </li> 
    </ul>
 <!------- 1일렌트 end ------->		

@@ -95,16 +95,20 @@
         <table class="table" style="color: #fff;">
             <thead>
                 <tr class="table-dark">
-                    <th>장기렌트</th>
+                    <th>1일렌트</th>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>차량번호</td>
+                    <td><input value="${vDto.cNum}" name="cNum" type="hidden" class="form-control" id="exampleFormControlInput1"></td>
+                </tr>
                 <tr>
                     <td>이름</td>
                     <td><input name="revName" type="name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name"></td>
                 </tr>
                 <tr>
-                    <td>주민번호</td>
+                    <td>주민번호</td>                   
                     <td><input name="revJumin1" type="rrn_first" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
                     <td><input name="revJumin2" type="rrn_second" class="form-control" id="exampleFormControlInput" placeholder="Input rrn"></td>
                 </tr>
