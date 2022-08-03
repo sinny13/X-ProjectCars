@@ -10,10 +10,15 @@
 		- js함수를 사용하기 전에 브라우저가 준비가 되어야 한다는 뜻?(페이지 로딩중..) */
 	$(document).ready(function(){
 		
-	/* 142줄 코드, (글쓰기 버튼)id btn-write를 클릭 했을 때 페이지 이동, location.href = "이동할 페이지 주소"; */
-      $("#btn-write").click(() => {
-         location.href="<c:url value='boardRegister.do?viewPage=${bp.viewPage}'/>";
+	/* 181줄 코드, (글쓰기 버튼)id btn-write를 클릭 했을 때 페이지 이동, location.href = "이동할 페이지 주소"; */
+	if(${sessionScope.userId == 'admin'}){
+		
+	$("#btn-write").click(() => {
+         location.href="<c:url value='register.do?viewPage=${bp.viewPage}'/>";
       })
+	}
+	
+	
       /* 
       jQuery
       - 부트스트랩 같이 jQuery에서 제공하는 $()같은 코드나 함수를 사용하면 특정 기능을 짧은 문법으로 사용할 수 있다.
@@ -46,20 +51,25 @@
       });
       
       /************* 글 상세보기 ***********/
-      /* 112줄 */
+      /* 149줄 */
       /* class="goView"에 on("clilck")으로 동적 바인딩(묶음) 후 클릭 이벤트 처리 */
-      $(".goView").on("click", function(e){
-         e.preventDefault();
-         
-         moveForm.append("<input type='hidden' name='bid' value='"+
-               $(this).attr("href")+"'>");
-         moveForm.attr("action", "boardView.do"); 
-         /*
-         moveform에 action 속성 추가, 속성값: boardView.do로 이동
-     	 action : 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 url을 입력
-       	 */
-         moveForm.submit();
-      });
+      
+      if(${sessionScope.userId !=null || sessionScope.userId != ''}){
+    	  
+	      $(".goView").on("click", function(e){ // goView 클릭 시 ~ 이벤트 실행
+	         e.preventDefault();
+	         
+	         moveForm.append("<input type='hidden' name='bid' value='"+
+	               $(this).attr("href")+"'>");
+	         moveForm.attr("action", "view.do"); 
+	         /*
+	         moveform에 action 속성 추가, 속성값: view.do로 이동
+	     	 action : 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 url을 입력
+	       	 */
+	         moveForm.submit();
+	      });
+      }
+    	  
       
       
       /************* 검색 ****************/
@@ -81,15 +91,15 @@
 
 
 <div class="container mt-5">
-<h3>스프링 게시판</h3>
+<h3>공지사항</h3>
 	<div>
-		<form action="boardList.do" method="get" id="moveForm"><!-- 데이터 객체 -->
+		<form action="list.do" method="get" id="moveForm"><!-- 검색 데이터 객체 -->
 		   <input type="hidden" name="viewPage" value="${bp.viewPage}"/>
 		   <input type="hidden" name="searchType" value="${vo.searchType}"/>
 		   <input type="hidden" name="keyWord" value="${vo.keyWord}"/>
 		</form>
 		
- 		<form id="searchForm" method="post" action="boardList.do">
+ 		<form id="searchForm" method="post" action="list.do">
 		   <div class="d-flex justify-content-end">
 		   
 		      <!-- 검색 >> BoardMapper.java -->
@@ -104,16 +114,20 @@
 		         <option value="W"
 		            <c:out value="${vo.searchType eq 'W' ? 'selected':''}"/>>글쓴이</option>
 		      </select>
-		      <!-- 검색창 --><input class="form-control rounded-0 rounded-start" type="text" 
+		      
+		      <!-- 검색창 -->
+		      <input class="form-control rounded-0 rounded-start" type="text" 
 		         id="keyWord" name="keyWord" placeholder="Search" 
-		         style="width:250px" value="${vo.keyWord}">
-		      <!-- 검색버튼 --><button id="btn-search " class="btn btn-outline-success rounded-0 rounded-end" 
+		         style="width:250px" value="${vo.keyWord}"> <!-- DB에 저장된 데이터와 비교 -->
+		         
+		      <!-- 검색버튼 -->
+		      <button id="btn-search " class="btn btn-outline-success rounded-0 rounded-end" 
 		         style="width:40px; background:#138496; color:white" ><i class="fa fa-search"></i></button> 
 		   </div>
 		</form>
 	</div>
 <!-- BoardController : BoardPaging bp = new BoardPaging(totalCnt, viewPage, cntPerPage); -->
-<div class="m-0 my-1"><b>${bp.viewPage}</b> / ${bp.totalPage} pages</div>
+<div class="m-0 my-1"><b>${bp.viewPage}</b> / ${bp.totalPage} pages</div><!-- 현재 페이지 -->
 	<table class="table table-hover">
 	   <thead style="background:#8091a3; color:white">
 	      <tr>
@@ -133,7 +147,7 @@
 		<!-- 테이블: 번호 제목 글쓴이 등록일 조회수 -->
 	         <td>${bno}</td>
 	         <td><a class="goView" href="<c:url value='${lvo.bid}'/>">${lvo.subject}</a></td>
-	         <td>${lvo.writer}</td>
+	         <td>${lvo.writer}</td><!-- 여기는 관리자니까 누르면 마이페이지로 감 아니면 관리자가 쓴 글로 이동 -->
 	         <td><fmt:formatDate pattern="yyyy-MM-dd" value="${lvo.regDate}"/></td>
 	         <td>${lvo.hit}</td>
 	      </tr>
@@ -165,18 +179,9 @@
 	  </li>
 	</ul>
 	
-<%-- 	<div class="text-center">
-	   <button class="btn btn btn-outline-dark" id="btn-dark">
-	      <c:if test="${sessionScope.userId==null || sessionScope.userId==''}">disabled</c:if>
-	      <!-- id 세션이 없으면 버튼 비활성화 -->
-	      <i class="fa fa-pencil-square-o">글쓰기</i>
-	    </button>
-	</div> --%>
-
-    <a class="btn btn-outline-white">^</a><!-- 폰트 -->
-	<c:if test="${sessionScope.userId =='admin'}">
-		<a class="btn btn-outline-white" href="boardView.do" style="float:right">글쓰기</a>
-	</c:if>
+	<div class="text-center">
+		<button class="btn btn-outline-white" id="btn-write">글쓰기</button>
+	</div>
 </div>
 
 <%@ include file="../inc/footer.jsp" %>

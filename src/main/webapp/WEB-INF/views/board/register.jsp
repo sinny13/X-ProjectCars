@@ -14,13 +14,21 @@
 <!-- <script src="ckeditor/ckeditor.js"></script> -->
 <div class="container d-flex mt-5 justify-content-center">
    <div class="w-75 shadow p-5 rounded border">
-      <h3>글쓰기</h3>
+      <h3>공지사항</h3>
       <form method="post" action="<c:url value='register.do'/>">
-         <input type="hidden" name="uid" value="${sessionScope.userId == 'admin'}"/>
+         <input type="hidden" name="id" value="${sessionScope.userId}"/>
+         
+         <div class="form-group"class="form-control" id="writer" name="writer">
+            <label for="writer">글쓴이 ${sessionScope.userName}</label>
+            <%--<input type="text" class="form-control" id="writer"
+               name="writer" placeholder="이름을 입력하세요"/>--%>
+          	<input type="text" class="form-control" id="writer"
+               name="writer" readonly value="${sessionScope.userName}"/>
+         </div>
          <div class="form-group">
             <label for="subject">제목</label>
             <input type="text" class="form-control" id="subject" 
-               name="subject" placeholder="제목을 입력하세요"/>
+               name="subject" placeholder="글 제목을 입력하세요"/>
          </div>
          <div class="form-group">
             <label for="contents">내용</label>
@@ -72,13 +80,7 @@
              
  
           </div>
-         <div class="form-group">
-            <label for="writer">글쓴이</label>
-            <%--<input type="text" class="form-control" id="writer"
-               name="writer" placeholder="이름을 입력하세요"/>--%>
-            <input type="text" class="form-control" id="writer"
-               name="writer" readonly value="${sessionScope.userName}"/>
-         </div>
+          
          <div class="form-group mt-4">
             <button type="submit" class="btn btn-primary">등록</button>
             <button type="button" id="btn-list" class="btn btn-secondary">리스트</button>

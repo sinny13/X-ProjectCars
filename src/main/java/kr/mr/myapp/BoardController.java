@@ -26,7 +26,7 @@ public class BoardController {
 	
 	// 게시판 목록
 //	@RequestMapping("/list.do") /list.do로 요청 시 해당 메소드(글 목록 보기) 실행
-	@RequestMapping("/boardList.do")
+	@RequestMapping("/list.do")
 	public String list(
 			// @RequestParam : https://heavenly-appear.tistory.com/302
 			@RequestParam(defaultValue = "1") int viewPage,
@@ -55,7 +55,7 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping(value="/boardRegister.do", method=RequestMethod.GET)
+	@RequestMapping(value="/register.do", method=RequestMethod.GET)
 	// GET : html <body>의 내용을 담아서 보낼때 사용
 	public String registerForm(
 			@ModelAttribute("viewPage") int viewPage) {
@@ -66,29 +66,29 @@ public class BoardController {
 	public String register(BoardVO board) {
 		service.register(board);
 		
-		return "redirect:/boardList.do"; // 글등록 : 글등록 후 다시 글 목록으로 돌아갈 때(redirect)
+		return "redirect:/list.do"; // 글등록 : 글등록 후 다시 글 목록으로 돌아갈 때(redirect)
 	}
 	
 	
-	@RequestMapping("/boardView.do")
+	@RequestMapping("/view.do")
 	public String view(@ModelAttribute("bvo") BoardVO bvo, int viewPage, Model model) {
 		BoardVO board = service.view(bvo.getBid(), "view");
 		model.addAttribute("board", board);
 		model.addAttribute("viewPage", viewPage);
 		
-		return "board/boardView";
+		return "board/view";
 		
 	}
 	
-	@RequestMapping(value="/boardModify.do", method=RequestMethod.GET)
+	@RequestMapping(value="/modify.do", method=RequestMethod.GET)
 	public String modifyForm(@ModelAttribute("bvo") BoardVO bvo, @ModelAttribute("viewPage") int viewPage, Model model) {
 		BoardVO board = service.view(bvo.getBid(), "modify");
 		model.addAttribute("board", board);
 		
-		return "board/boardModify"; // modify.jsp
+		return "board/modify"; // modify.jsp
 	}
 	
-	@RequestMapping(value="/boardModify.do", method=RequestMethod.POST)
+	@RequestMapping(value="/modify.do", method=RequestMethod.POST)
 	public String modify(BoardVO board,
 			@ModelAttribute("viewPage") int viewPage, Model model) {
 		System.out.println(board);
@@ -99,10 +99,10 @@ public class BoardController {
 		
 		// redirect:접두어가 붙으면 스프링에서 내부적으로
 		// response.sendRedirect() 처리해 줌
-		return "redirect:/boardList.do";
+		return "redirect:/list.do";
 	}
 	
-	@RequestMapping("/boardRemove.do")
+	@RequestMapping("/remove.do")
 	public String remove(@ModelAttribute BoardVO bvo,
 			int viewPage, RedirectAttributes rttr) {
 		
@@ -119,7 +119,7 @@ public class BoardController {
 				
 		rttr.addFlashAttribute("bvo", bvo);
 		
-		return "redirect:/boardList.do";
+		return "redirect:/list.do";
 	}
 	
 	
