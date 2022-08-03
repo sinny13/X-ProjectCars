@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@ include file="../inc/header.jsp"%> --%>
+<%@ include file="../inc/header.jsp"%>
 
 <link rel="stylesheet" href="${ctx}/resources/css/payment.css" />
+
 
 
 
@@ -802,6 +803,5 @@
 	<script
 		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="${ctx}/resources/js/payment.js"></script>
-
 </body>
 </html>
