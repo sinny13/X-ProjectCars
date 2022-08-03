@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
   box-sizing: border-box;
   font-family: "Muli" !important;
@@ -928,7 +930,7 @@ label {
   transform: translate(-50%, -50%);
 }
 
-.header {
+.header-payment {
   display: flex;
   justify-content: space-between;
   align-items: center;
