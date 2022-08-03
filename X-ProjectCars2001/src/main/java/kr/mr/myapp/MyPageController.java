@@ -69,5 +69,22 @@ public class MyPageController {
 
 		return "mypage/myLongReserv";
 	}
+	
+	// 결제 뷰페이지
+	@RequestMapping("/myPayment.do")
+	public String myPayment() {
+
+		return "mypage/myPayment";
+	}	
+	
+	// 결제 -> 무통장입금 뷰페이지
+	@RequestMapping("/myBankPayment.do")
+	public String myBankPayment() {
+
+		return "mypage/myBankPayment";
+	}	
+	
+	
+	
 
 }
